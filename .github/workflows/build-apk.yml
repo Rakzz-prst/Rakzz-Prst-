@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Extract Android project
+      - name: Extract project
         run: |
           mkdir project
           unzip -q RakzzPrstAndroid_Costumer_Service_WA_Telegram_Mockup_Exact_Icons_Indikator_Sholat.zip -d project
@@ -26,8 +26,10 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Set up Gradle
+      - name: Set up Gradle 8.9
         uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
 
       - name: Build APK
         working-directory: project
